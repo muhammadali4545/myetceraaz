@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ur" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ETCERAAZ | A to Z Islamic Lifestyle & Cafe Empire</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            black: '#0A0A0B',
+                            dark: '#121214',
+                            card: '#18181B',
+                            gold: '#D4AF37',
+                            goldLight: '#F3E5AB',
+                            goldDark: '#997A15'
+                        }
+                    },
+                    fontFamily: {
+                        cinzel: ['Cinzel', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0A0A0B;
+            color: #F4F4F5;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #F3E5AB 0%, #D4AF37 50%, #997A15 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gold-border {
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+        .gold-glow {
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.15);
+        }
+        .glass-panel {
+            background: rgba(24, 24, 27, 0.7);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        .page-section {
+            display: none;
+        }
+        .page-section.active {
+            display: block;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-gold selection:text-brand-black">
+
+    <!-- Top Navigation Header -->
+    <nav class="fixed top-0 left-0 w-full z-50 glass-panel px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <!-- Logo & Brand Name -->
+            <div class="flex items-center gap-3 cursor-pointer" onclick="showPage('home')">
+                <img src="c:\Users\dell e6440\Pictures\Etceraaz.PNG" alt="ETCERAAZ Logo" class="w-10 h-10 object-contain rounded-full border border-brand-gold/50 gold-glow">
+                <span class="font-cinzel font-bold text-2xl tracking-wider gold-gradient-text">ETCERAAZ</span>
+            </div>
+            
+            <!-- Multi-Page Links -->
+            <div class="hidden md:flex items-center gap-8 text-sm font-semibold tracking-wide">
+                <button onclick="showPage('home')" class="nav-btn hover:text-brand-gold transition text-brand-gold" id="btn-home">Home</button>
+                <button onclick="showPage('menu')" class="nav-btn hover:text-brand-gold transition text-gray-300" id="btn-menu">Cafe Menu</button>
+                <button onclick="showPage('roadmap')" class="nav-btn hover:text-brand-gold transition text-gray-300" id="btn-roadmap">Empire Vision</button>
+                <button onclick="showPage('lifestyle')" class="nav-btn hover:text-brand-gold transition text-gray-300" id="btn-lifestyle">Lifestyle & Apparel</button>
+                <button onclick="showPage('contact')" class="nav-btn hover:text-brand-gold transition text-gray-300" id="btn-contact">Contact Us</button>
+            </div>
+
+            <!-- Cart Trigger -->
+            <button onclick="toggleCart()" class="relative border border-brand-gold/40 text-brand-gold px-4 py-2 rounded-full hover:bg-brand-gold hover:text-brand-black transition duration-300 flex items-center gap-2">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span class="hidden sm:inline">Cart</span>
+                <span id="cart-count" class="bg-brand-gold text-brand-black text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">0</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <main class="pt-28 pb-20 px-6 min-h-screen">
+
+        <!-- PAGE 1: HOME -->
+        <section id="page-home" class="page-section active max-w-7xl mx-auto">
+            <div class="flex flex-col lg:flex-row items-center gap-12 py-12">
+                <div class="flex-1 text-left">
+                    <div class="inline-flex items-center gap-2 border border-brand-gold/30 px-4 py-1.5 rounded-full bg-brand-dark mb-6 text-xs tracking-widest text-brand-gold uppercase">
+                        <i class="fa-solid fa-crown"></i> ESTD 2026 | Pure Luxury
+                    </div>
+                    <h1 class="font-cinzel text-4xl md:text-6xl font-bold leading-tight mb-6">
+                        Elevating Everyday Essentials into an <br>
+                        <span class="gold-gradient-text">A to Z Empire</span>
+                    </h1>
+                    <p class="text-gray-400 text-lg mb-8 leading-relaxed">
+                        Welcome to ETCERAAZ. Beginning with artisan coffees, signature teas, and gourmet treats, evolving into Pakistan's premier Islamic lifestyle brand.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <button onclick="showPage('menu')" class="bg-brand-gold text-brand-black font-bold px-8 py-4 rounded-full hover:bg-yellow-400 transition shadow-lg shadow-brand-gold/20 flex items-center gap-2">
+                            <i class="fa-solid fa-mug-hot"></i> Explore Menu
+                        </button>
+                        <button onclick="showPage('roadmap')" class="border border-brand-gold/40 text-brand-gold font-semibold px-8 py-4 rounded-full hover:bg-brand-gold/10 transition flex items-center gap-2">
+                            <i class="fa-solid fa-compass"></i> Empire Vision
+                        </button>
+                    </div>
+                </div>
+                <div class="flex-1 flex justify-center">
+                    <div class="relative w-80 h-80 md:w-96 md:h-96 rounded-full border-2 border-brand-gold/40 p-4 gold-glow flex items-center justify-center bg-brand-dark">
+                        <img src="c:\Users\dell e6440\Pictures\Etceraaz.PNG" alt="ETCERAAZ Brand Emblem" class="w-full h-full object-contain rounded-full">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE 2: CAFE MENU -->
+        <section id="page-menu" class="page-section max-w-6xl mx-auto py-8">
+            <div class="text-center mb-12">
+                <h2 class="font-cinzel text-3xl md:text-5xl font-bold gold-gradient-text mb-3">Our Cafe Menu</h2>
+                <p class="text-gray-400">Crafted with precision, served with perfection</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Item 1 -->
+                <div class="glass-panel p-6 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="font-bold text-xl text-brand-gold">Winter Vision Coffee</h3>
+                            <span class="text-sm font-semibold bg-brand-gold/10 text-brand-gold px-3 py-1 rounded-full border border-brand-gold/30">₨ 480</span>
+                        </div>
+                        <p class="text-gray-400 text-sm mb-6"> cold coffee infused with dark cocoa and caramel notes.</p>
+                    </div>
+                    <button onclick="addToCart('Gold Cold Brew', 480)" class="w-full bg-brand-gold/10 border border-brand-gold/40 text-brand-gold py-2.5 rounded-xl hover:bg-brand-gold hover:text-brand-black transition font-semibold">
+                        Add to Order
+                    </button>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="glass-panel p-6 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="font-bold text-xl text-brand-gold">Zafran Karak Tea</h3>
+                            <span class="text-sm font-semibold bg-brand-gold/10 text-brand-gold px-3 py-1 rounded-full border border-brand-gold/30">₨ 250</span>
+                        </div>
+                        <p class="text-gray-400 text-sm mb-6">Rich cardamom tea simmered with authentic Iranian saffron threads.</p>
+                    </div>
+                    <button onclick="addToCart('Zafran Karak Tea', 250)" class="w-full bg-brand-gold/10 border border-brand-gold/40 text-brand-gold py-2.5 rounded-xl hover:bg-brand-gold hover:text-brand-black transition font-semibold">
+                        Add to Order
+                    </button>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="glass-panel p-6 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="font-bold text-xl text-brand-gold">Belgian Glazed Donut</h3>
+                            <span class="text-sm font-semibold bg-brand-gold/10 text-brand-gold px-3 py-1 rounded-full border border-brand-gold/30">₨ 320</span>
+                        </div>
+                        <p class="text-gray-400 text-sm mb-6">Soft artisanal donut coated with rich Belgian dark chocolate glaze.</p>
+                    </div>
+                    <button onclick="addToCart('Belgian Glazed Donut', 320)" class="w-full bg-brand-gold/10 border border-brand-gold/40 text-brand-gold py-2.5 rounded-xl hover:bg-brand-gold hover:text-brand-black transition font-semibold">
+                        Add to Order
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE 3: EMPIRE VISION -->
+        <section id="page-roadmap" class="page-section max-w-5xl mx-auto py-8">
+            <div class="text-center mb-12">
+                <h2 class="font-cinzel text-3xl md:text-5xl font-bold gold-gradient-text mb-3">The ETCERAAZ Roadmap</h2>
+                <p class="text-gray-400">Our strategic growth from cafe to multi-industry empire</p>
+            </div>
+
+            <div class="space-y-6">
+                <div class="glass-panel p-6 rounded-2xl flex flex-col md:flex-row gap-6 items-center">
+                    <div class="bg-brand-gold text-brand-black font-bold font-cinzel text-lg px-4 py-2 rounded-xl">Phase 1</div>
+                    <div class="flex-1">
+                        <h3 class="text-xl font-bold text-brand-gold">Mini Cafe & Beverages</h3>
+                        <p class="text-gray-400 text-sm mt-1">Establishing brand culture with cold coffees, saffron teas, donuts, and signature fries.</p>
+                    </div>
+                    <span class="text-xs bg-green-500/20 text-green-400 px-3 py-1 rounded-full border border-green-500/30">Active</span>
+                </div>
+
+                <div class="glass-panel p-6 rounded-2xl flex flex-col md:flex-row gap-6 items-center">
+                    <div class="bg-brand-gold/20 text-brand-gold border border-brand-gold/40 font-bold font-cinzel text-lg px-4 py-2 rounded-xl">Phase 2</div>
+                    <div class="flex-1">
+                        <h3 class="text-xl font-bold text-white">Full Fast Food & Desserts</h3>
+                        <p class="text-gray-400 text-sm mt-1">Gourmet burgers, specialty hot beverages, combo deals, and luxury desserts.</p>
+                    </div>
+                    <span class="text-xs bg-brand-gold/20 text-brand-gold px-3 py-1 rounded-full border border-brand-gold/30">Upcoming</span>
+                </div>
+
+                <div class="glass-panel p-6 rounded-2xl flex flex-col md:flex-row gap-6 items-center">
+                    <div class="bg-brand-gold/20 text-brand-gold border border-brand-gold/40 font-bold font-cinzel text-lg px-4 py-2 rounded-xl">Phase 3</div>
+                    <div class="flex-1">
+                        <h3 class="text-xl font-bold text-white">Islamic Lifestyle & Fashion Empire</h3>
+                        <p class="text-gray-400 text-sm mt-1">Luxury modesty apparel, custom timepieces, accessories, and lifestyle goods.</p>
+                    </div>
+                    <span class="text-xs bg-brand-gold/20 text-brand-gold px-3 py-1 rounded-full border border-brand-gold/30">Vision 2026+</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE 4: LIFESTYLE & APPAREL -->
+        <section id="page-lifestyle" class="page-section max-w-6xl mx-auto py-8">
+            <div class="text-center mb-12">
+                <h2 class="font-cinzel text-3xl md:text-5xl font-bold gold-gradient-text mb-3">Lifestyle & Apparel</h2>
+                <p class="text-gray-400">Exclusive collections coming soon under the ETCERAAZ banner</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass-panel p-8 rounded-2xl text-center">
+                    <i class="fa-solid fa-clock text-4xl text-brand-gold mb-4"></i>
+                    <h3 class="font-bold text-xl mb-2">Luxury Timepieces</h3>
+                    <p class="text-gray-400 text-sm">Minimalist watch collection featuring gold accents and Arabic calligraphy dials.</p>
+                </div>
+                <div class="glass-panel p-8 rounded-2xl text-center">
+                    <i class="fa-solid fa-shirt text-4xl text-brand-gold mb-4"></i>
+                    <h3 class="font-bold text-xl mb-2">Modest Apparel</h3>
+                    <p class="text-gray-400 text-sm">Premium quality hoodies, thobes, and urban streetwear for Gen Z and Gen Alpha.</p>
+                </div>
+                <div class="glass-panel p-8 rounded-2xl text-center">
+                    <i class="fa-solid fa-gem text-4xl text-brand-gold mb-4"></i>
+                    <h3 class="font-bold text-xl mb-2">A to Z Accessories</h3>
+                    <p class="text-gray-400 text-sm">Custom rings, leather goods, and lifestyle essentials with Islamic aesthetics.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE 5: CONTACT -->
+        <section id="page-contact" class="page-section max-w-4xl mx-auto py-8">
+            <div class="text-center mb-12">
+                <h2 class="font-cinzel text-3xl md:text-5xl font-bold gold-gradient-text mb-3">Get in Touch</h2>
+                <p class="text-gray-400">Visit our outlet or place an order query</p>
+            </div>
+
+            <div class="glass-panel p-8 rounded-2xl">
+                <form onsubmit="event.preventDefault(); alert('Message sent successfully!');" class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-semibold mb-2 text-brand-gold">Full Name</label>
+                        <input type="text" required class="w-full bg-brand-dark border border-brand-gold/30 rounded-xl p-3 focus:outline-none focus:border-brand-gold text-white" placeholder="Enter your name">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold mb-2 text-brand-gold">Phone Number</label>
+                        <input type="tel" required class="w-full bg-brand-dark border border-brand-gold/30 rounded-xl p-3 focus:outline-none focus:border-brand-gold text-white" placeholder="03XX-XXXXXXX">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold mb-2 text-brand-gold">Message / Query</label>
+                        <textarea rows="4" required class="w-full bg-brand-dark border border-brand-gold/30 rounded-xl p-3 focus:outline-none focus:border-brand-gold text-white" placeholder="Write your query..."></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-brand-gold text-brand-black font-bold py-3.5 rounded-xl hover:bg-yellow-400 transition">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-brand-gold/20 text-center text-gray-500 text-sm glass-panel">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-2">
+                <img src="c:\Users\dell e6440\Pictures\Etceraaz.PNG" alt="ETCERAAZ" class="w-6 h-6 rounded-full">
+                <span class="font-cinzel font-bold text-brand-gold">ETCERAAZ</span>
+                <span>• ESTD 2026</span>
+            </div>
+            <p>© 2026 ETCERAAZ. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Cart Drawer -->
+    <div id="cart-drawer" class="fixed top-0 right-0 w-80 h-full glass-panel z-50 transform translate-x-full transition-transform duration-300 p-6 flex flex-col justify-between">
+        <div>
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="font-cinzel text-xl font-bold gold-gradient-text">Your Order Cart</h3>
+                <button onclick="toggleCart()" class="text-gray-400 hover:text-white"><i class="fa-solid fa-xmark text-xl"></i></button>
+            </div>
+            <div id="cart-items" class="space-y-4 text-sm max-h-96 overflow-y-auto">
+                <p class="text-gray-400 text-center py-8">Your cart is empty.</p>
+            </div>
+        </div>
+        <div>
+            <div class="border-t border-brand-gold/20 pt-4 mb-4 flex justify-between font-bold">
+                <span>Total Amount:</span>
+                <span id="cart-total" class="text-brand-gold">₨ 0</span>
+            </div>
+            <button onclick="alert('Order placed successfully!')" class="w-full bg-brand-gold text-brand-black py-3 rounded-xl font-bold hover:bg-yellow-400 transition">
+                Checkout
+            </button>
+        </div>
+    </div>
+
+    <!-- JavaScript for Page Navigation & Cart -->
+    <script>
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page-section').forEach(sec => sec.classList.remove('active'));
+            // Show selected page
+            document.getElementById('page-' + pageId).classList.add('active');
+            
+            // Update Navigation Button styles
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('text-brand-gold');
+                btn.classList.add('text-gray-300');
+            });
+            document.getElementById('btn-' + pageId).classList.add('text-brand-gold');
+            document.getElementById('btn-' + pageId).classList.remove('text-gray-300');
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        let cart = [];
+        function toggleCart() {
+            document.getElementById('cart-drawer').classList.toggle('translate-x-full');
+        }
+        function addToCart(name, price) {
+            cart.push({ name, price });
+            updateCart();
+        }
+        function updateCart() {
+            document.getElementById('cart-count').innerText = cart.length;
+            const container = document.getElementById('cart-items');
+            if (cart.length === 0) {
+                container.innerHTML = '<p class="text-gray-400 text-center py-8">Your cart is empty.</p>';
+                document.getElementById('cart-total').innerText = '₨ 0';
+                return;
+            }
+            let total = 0;
+            container.innerHTML = cart.map((item) => {
+                total += item.price;
+                return `<div class="flex justify-between items-center border-b border-brand-gold/10 pb-2">
+                    <span>${item.name}</span>
+                    <span class="text-brand-gold">₨ ${item.price}</span>
+                </div>`;
+            }).join('');
+            document.getElementById('cart-total').innerText = '₨ ' + total;
+        }
+    </script>
+</body>
+</html>
